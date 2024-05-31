@@ -1,0 +1,14 @@
+normal crawl
+
+video ID, uploader, age, category, length, views, rate, ratings, comments, related IDs
+
+start:  0222 16:54:40
+finish: 0227 17:04:29
+
+depth	video	time
+0	189	173
+1	3169	3535
+2	23543	16496
+3	208331	99106
+4	514129	313279 (incompleted)
+total	749361	432589
