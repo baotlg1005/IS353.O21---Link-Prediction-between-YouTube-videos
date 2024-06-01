@@ -94,7 +94,7 @@ def get_all_categories(video_dict_list):
 
 # Plots networkX graph with color and node_sizes
 def plot_graph_networkX(G, graph_to_dict, video_dict_list):
-    node_sizes = [10.0 if graph_to_dict[int(node)] in video_dict_list else 0.01 for node in G]
+    node_sizes = [10.0 if graph_to_dict[int(node)] in video_dict_list else 0.1 for node in G]
     categories = get_all_categories(video_dict_list)
     node_colors = []
     for node in G:
@@ -102,9 +102,11 @@ def plot_graph_networkX(G, graph_to_dict, video_dict_list):
             node_colors.append((categories.index(video_dict_list[getVideoId(int(node), graph_to_dict)]['category']) + 1.0) / float(len(categories)))
         else:
             node_colors.append(0.0)
-    nx.draw_kamada_kawai(G, with_labels=False, node_size=node_sizes, node_color=node_colors, cmap=plt.get_cmap('viridis'))
+    nx.draw(G, node_size=node_sizes, node_color=node_colors, with_labels=False)
+    
+    #nx.draw_kamada_kawai(G, with_labels=False, node_size=node_sizes, node_color=node_colors, cmap=plt.get_cmap('viridis'))
     plt.show()
-    plt.savefig('youtube_graph.png')
+    #plt.savefig('youtube_graph.png')
 
 # Example usage (uncomment to run):
 # video_dict_list = load_file('youtube_data.txt')
